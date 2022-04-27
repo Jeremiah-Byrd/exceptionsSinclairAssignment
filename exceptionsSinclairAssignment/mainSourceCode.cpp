@@ -16,11 +16,11 @@ char character(char start, int offset);
 int main() {
 	//Driver 
 	try{
-	cout << "\n Test #1(Should return b): " << character('a', 1);
-	cout << "\n Test #2(Should return invalid range exception): " << character('a', -1);
-	cout << "\n Test #3(Should return Y): " << character('Z', 1);
-	cout << "\n Test #4(should return invalid character exception): " << character('?', 5);
-	cout << "\n Test #5(Should return a transition exception): " << character('A', 32);
+	//cout << "\n Test #1(Should return b): " << character('a', 1);
+	//cout << "\n Test #2(Should return invalid range exception): " << character('a', -1);
+	//cout << "\n Test #3(Should return Y): " << character('Z', -1);
+	//cout << "\n Test #4(should return invalid character exception): " << character('?', 5);
+	//cout << "\n Test #5(Should return a transition exception): " << character('A', 32);
 
 	
 	}
@@ -51,12 +51,12 @@ char character(char start, int offset) {
 		
 		//Checking that no transition lowercase letters happened 
 		if (islower(start)) {
-			if (char(start+offset) == tolower(start+offset)) {
+			if (char(start+offset) == toupper(start+offset)) {
 				throw "invalidConversionException";
 			}
 		}//Checking that no transitions of capital letters happened
 		else if (isupper(start)) {
-			if (char(start + offset) == toupper(start + offset)) {
+			if (char(start + offset) == tolower(start + offset)) {
 				throw "invalidConversionException";
 			}
 		}

@@ -21,10 +21,15 @@ int main() {
 	cout << "\n Test #3(Should return Y): " << character('Z', 1);
 	cout << "\n Test #4(should return invalid character exception): " << character('?', 5);
 	cout << "\n Test #5(Should return a transition exception): " << character('A', 32);
+
+	
 	}
 	catch (const char* exception) {
-		cout << exception;
+		cout << "\nException: " << exception;
 	}
+	
+	cin.ignore(1, '\n');
+	cin.get();
 }
 
 /**************************************
@@ -56,5 +61,6 @@ char character(char start, int offset) {
 			}
 		}
 
-
+		//Returning proper conversion 
+		return char(start + offset);
 }

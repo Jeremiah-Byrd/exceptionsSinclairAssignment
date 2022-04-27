@@ -14,21 +14,27 @@ using namespace std;
 char character(char start, int offset);
 
 int main() {
-	//Driver 
-	try{
-	//cout << "\n Test #1(Should return b): " << character('a', 1);
-	//cout << "\n Test #2(Should return invalid range exception): " << character('a', -1);
-	//cout << "\n Test #3(Should return Y): " << character('Z', -1);
-	//cout << "\n Test #4(should return invalid character exception): " << character('?', 5);
-	//cout << "\n Test #5(Should return a transition exception): " << character('A', 32);
+	//Variables 
+	const int ARRAYSIZE = 5;
+	int offsetArray[ARRAYSIZE] = { 1,-1,-1,5,32 };
+	char characterArray[ARRAYSIZE] = { 'a','a','Z','?','A' };
 
-	
+	//Driver 
+	for (int i = 0; i < ARRAYSIZE; i++) {
+		try {
+			//Printing each test 
+			cout << "\nThe character is: " << characterArray[i];
+			cout << "\nThe offset is: " << offsetArray[i];
+			cout << "\nTest #" << i+1 << ": " << character(characterArray[i], offsetArray[i]) << endl;
+		}
+		catch (const char* exception) {
+			cout << "\nException: " << exception << "\n";
+		}
 	}
-	catch (const char* exception) {
-		cout << "\nException: " << exception;
-	}
 	
-	cin.ignore(1, '\n');
+	//End Prompt 
+	cout << "\n To end program press enter...";
+	cin.ignore();
 	cin.get();
 }
 
